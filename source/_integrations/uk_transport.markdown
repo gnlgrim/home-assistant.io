@@ -11,11 +11,22 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `uk_transport` sensor will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](https://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). The [free tier](https://www.transportapi.com/benefits/) allows 30,000 requests a month, which is sufficient for a single sensor refreshing every 87 seconds.
+The `uk_transport` sensor will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](https://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). 
+
+Their are 3 "plans" to choose from after signing up.
+Default plan when creating an account is "Free Plan"
+
+"Free plan" now offers 30 hits a day without time limit to a limited set of data
+
+"Home user" plan for 300 hits per day including all live departure data for £5 per month incl. VAT (with £10 incl. VAT setup fee)
+
+"Commercial trial" offering 1000 hits per day for all TransportAPI data but limited to 30 days and not renewable
+        
 
 <div class='note warning'>
 
-Additional sensors can be added but at the expense of a reduced refresh rate. 2 sensors can be updated every 2*87 = 174 seconds, and so on. Calculating and setting this rate is automatically handles by the integration.
+If you choose the "Free Plan" you need to set your scan_intercal on one sensor to only scan a total of 30 times a day(evert 2880 Seconds). scan_interval:2880
+The more sensors you add, your scan interval must be shortend on each sensor so that your total does not exceed your allowed number
 
 </div>
 
